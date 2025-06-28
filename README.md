@@ -1,0 +1,1 @@
+This is a simple Food and drinks clock but I have to tell you I am not a food diet expert...so if you want diet advice you'll have to make an appointment with a diet expert. For me it's just one clock. Have fun!
