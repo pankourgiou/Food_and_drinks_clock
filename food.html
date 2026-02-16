@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Food & Drinks Clock</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #fff5e6, #ffe4cc);
+  }
+
+  .container {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    padding: 40px 60px;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #6b3e26;
+    margin-bottom: 10px;
+  }
+
+  .clock {
+    font-size: 64px;
+    font-weight: 700;
+    color: #4b3621;
+    margin: 20px 0;
+    letter-spacing: 3px;
+  }
+
+  .menu {
+    font-size: 20px;
+    color: #5a3d2b;
+    line-height: 1.5;
+  }
+
+  .emoji {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #a07c5b;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="title">🍴 Food & Drinks Clock</div>
+  <div class="clock" id="clock">00:00:00</div>
+  <div class="menu" id="menu"></div>
+  <div class="footer">Beautiful daily food inspiration</div>
+</div>
+
+<script>
+const menuClock = {
+  0: "Midnight Snack: Hot chocolate & cookies 🍪",
+  1: "Late Night Treat: Cheese toast & herbal tea 🧀🍵",
+  2: "Sleepy Hour: Warm milk & banana 🍌",
+  3: "Dream Snack: Almonds & chamomile tea 🌙",
+  4: "Early Bite: Greek yogurt & honey 🍯",
+  5: "Sunrise Sips: Fresh orange juice & croissant 🥐🍊",
+  6: "Breakfast: Eggs, toast, and coffee ☕🍳",
+  7: "Morning Boost: Espresso & oatmeal 🥣",
+  8: "Second Breakfast: Pancakes & maple syrup 🥞",
+  9: "Brunch Time: Avocado toast & cappuccino 🥑☕",
+  10: "Late Morning Craving: Muffin & latte 🧁",
+  11: "Pre-Lunch: Fruit salad & iced tea 🍓🍑",
+  12: "Lunch: Pasta & lemonade 🍝🍋",
+  13: "Lunch Add-on: Caesar salad & sparkling water 🥗",
+  14: "Sweet Hour: Ice cream & espresso 🍨",
+  15: "Tea Time: Biscuits & earl grey tea 🍪🍵",
+  16: "Afternoon Pick-Me-Up: Sandwich & iced coffee 🥪",
+  17: "Pre-Dinner Snack: Nachos & soda 🧃",
+  18: "Dinner: Grilled chicken & red wine 🍷🍗",
+  19: "Dinner Treat: Sushi & green tea 🍣🍵",
+  20: "Evening Relax: Soup & bread 🥖",
+  21: "Dessert Hour: Chocolate mousse & liqueur 🍫",
+  22: "Chill Snack: Popcorn & milkshake 🍿🥤",
+  23: "Wind Down: Tea & dark chocolate 🍫"
+};
+
+function updateClock() {
+  const now = new Date();
+
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const seconds = String(now.getSeconds()).padStart(2, "0");
+
+  document.getElementById("clock").textContent = `${hours}:${minutes}:${seconds}`;
+
+  const hour = now.getHours();
+  document.getElementById("menu").textContent = "🍽️ " + menuClock[hour];
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+</body>
+</html>
